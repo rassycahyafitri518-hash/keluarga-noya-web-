@@ -1,0 +1,448 @@
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>わたしのかぞく</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Meiryo", sans-serif;
+        }
+
+        body {
+            background: #fff;
+            padding: 30px 20px;
+            line-height: 2.2;
+        }
+
+        .page {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 26px;
+            color: #2c3e50;
+        }
+
+        /* =========================
+           POHON KELUARGA
+        ========================= */
+
+        .tree {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        /* AYAH DAN IBU */
+        .row-top {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* KOTAK ORANG TUA */
+        .parent-box {
+            border: 2px solid #333;
+            padding: 12px 15px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            background: #fefefe;
+            width: 180px;
+        }
+
+        .parent-box img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto 8px;
+            display: block;
+            border: 2px solid #ddd;
+        }
+
+        /* GARIS VERTIKAL */
+        .line-v {
+            width: 2px;
+            height: 30px;
+            background: #333;
+            margin: 0 auto;
+        }
+
+        /* GARIS HORIZONTAL UNTUK 5 ANAK */
+        .branch {
+            width: 620px;
+            height: 25px;
+            position: relative;
+        }
+
+        .branch::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #333;
+        }
+
+        /* GARIS TURUN KE MASING-MASING ANAK */
+        .children-lines {
+            display: flex;
+            justify-content: space-between;
+            width: 620px;
+            margin-top: -1px;
+        }
+
+        .children-lines div {
+            width: 2px;
+            height: 20px;
+            background: #333;
+        }
+
+        /* 5 BERSAUDARA */
+        .row-bottom {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .box {
+            border: 2px solid #333;
+            padding: 10px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            background: #fefefe;
+            width: 115px;
+        }
+
+        .box img {
+            width: 75px;
+            height: 75px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto 8px;
+            display: block;
+            border: 2px solid #ddd;
+        }
+
+        /* =========================
+           CERITA
+        ========================= */
+
+        .story {
+            border-top: 2px dashed #aaa;
+            padding-top: 30px;
+        }
+
+        .sentence {
+            margin: 18px 0;
+            padding: 8px 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .jp {
+            font-size: 20px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .romaji {
+            font-size: 15px;
+            color: #7f8c8d;
+            margin-left: 10px;
+        }
+
+        .id {
+            font-size: 14px;
+            color: #27ae60;
+            margin-left: 10px;
+        }
+
+        /* =========================
+           RESPONSIVE HP
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .branch {
+                width: 95%;
+            }
+
+            .children-lines {
+                width: 95%;
+            }
+
+            .row-bottom {
+                gap: 6px;
+                flex-wrap: wrap;
+            }
+
+            .box {
+                width: 105px;
+                font-size: 17px;
+            }
+
+            .box img {
+                width: 65px;
+                height: 65px;
+            }
+
+            .parent-box {
+                width: 160px;
+            }
+
+            .parent-box img {
+                width: 105px;
+                height: 105px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <h1>わたしのかぞく</h1>
+
+
+    <!-- =========================
+         POHON KELUARGA
+    ========================== -->
+
+    <div class="tree">
+
+        <!-- AYAH DAN IBU = 1 FOTO -->
+        <div class="row-top">
+
+            <div class="parent-box">
+
+                <img src="Ayah,ibu.jpeg">
+
+                ちち & はは
+
+            </div>
+
+        </div>
+
+
+        <!-- GARIS DARI ORANG TUA -->
+        <div class="line-v"></div>
+
+
+        <!-- GARIS HORIZONTAL -->
+        <div class="branch"></div>
+
+
+        <!-- GARIS KE 5 ANAK -->
+        <div class="children-lines">
+
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+
+        </div>
+
+
+        <!-- =========================
+             5 BERSAUDARA
+        ========================== -->
+
+        <div class="row-bottom">
+
+            <!-- 1. KAKAK LAKI-LAKI -->
+            <div class="box">
+
+                <img src="Abang pertama.jpeg"
+                     alt="Kakak laki-laki pertama">
+
+                あに
+
+            </div>
+
+
+            <!-- 2. KAKAK PEREMPUAN -->
+            <div class="box">
+
+                <img src="kakak kedua.jpeg"
+                     alt="Kakak perempuan pertama">
+
+                あね
+
+            </div>
+
+
+            <!-- 3. KAKAK PEREMPUAN -->
+            <div class="box">
+
+                <img src="kakak ketiga.jpeg"
+                     alt="Kakak perempuan kedua">
+
+                あね
+
+            </div>
+
+
+            <!-- 4. KAKAK LAKI-LAKI -->
+            <div class="box">
+
+                <img src="abang keempat.jpeg"
+                     alt="Kakak laki-laki kedua">
+
+                あに
+
+            </div>
+
+
+            <!-- 5. SAYA -->
+            <div class="box">
+
+                <img src="bungsu.jpeg"
+                     alt="Saya">
+
+                わたし
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         CERITA TENTANG KELUARGA
+    ========================== -->
+
+    <div class="story">
+
+
+        <!-- KALIMAT 1 -->
+        <div class="sentence">
+
+            <div class="jp">
+                これはわたしのかぞくです。
+            </div>
+
+            <div class="romaji">
+                Kore wa watashi no kazoku desu.
+            </div>
+
+            <div class="id">
+                → Ini keluarga saya.
+            </div>
+
+        </div>
+
+
+        <!-- KALIMAT 2 -->
+        <div class="sentence">
+
+            <div class="jp">
+                わたしのかぞくはななにんです。
+            </div>
+
+            <div class="romaji">
+                Watashi no kazoku wa nananin desu.
+            </div>
+
+            <div class="id">
+                → Keluarga saya beranggotakan 7 orang.
+            </div>
+
+        </div>
+
+
+        <!-- KALIMAT 3 -->
+        <div class="sentence">
+
+            <div class="jp">
+                ちちとははとごにんきょうだいです。
+            </div>
+
+            <div class="romaji">
+                Chichi to haha to gonin kyōdai desu.
+            </div>
+
+            <div class="id">
+                → Ada ayah, ibu, dan kami 5 bersaudara.
+            </div>
+
+        </div>
+
+
+        <!-- KALIMAT 4 -->
+        <div class="sentence">
+
+            <div class="jp">
+                わたしはごにんきょうだいです。
+            </div>
+
+            <div class="romaji">
+                Watashi wa gonin kyōdai desu.
+            </div>
+
+            <div class="id">
+                → Saya memiliki 4 saudara, jadi kami 5 bersaudara.
+            </div>
+
+        </div>
+
+
+        <!-- KALIMAT 5 -->
+        <div class="sentence">
+
+            <div class="jp">
+                あにがふたりとあねがふたりいます。
+            </div>
+
+            <div class="romaji">
+                Ani ga futari to ane ga futari imasu.
+            </div>
+
+            <div class="id">
+                → Saya mempunyai 2 kakak laki-laki dan 2 kakak perempuan.
+            </div>
+
+        </div>
+
+
+        <!-- KALIMAT 6 -->
+        <div class="sentence">
+
+            <div class="jp">
+                わたしはいちばんしたです。
+            </div>
+
+            <div class="romaji">
+                Watashi wa ichiban shita desu.
+            </div>
+
+            <div class="id">
+                → Saya adalah anak paling bungsu.
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</body>
+</html>
+```
